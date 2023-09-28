@@ -8,9 +8,52 @@
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/bcc6ce623e.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="./assets/css/main.css" />
     <link rel="icon" href="#" />
   </head>
-
-  <body></body>
+  <body>
+    <header>
+      <h1>Buscador de series</h1>
+    </header>
+    <main>
+      <aside>
+        <!-- Revisar que hay que rellenar del form -->
+        <form>
+          <input
+            class="js-input-search"
+            type="text"
+            name="search-input"
+            id="search-input"
+            placeholder="Ej:Game of Thrones"
+          />
+          <button class="js-btn-search">Search</button>
+        </form>
+        <article>
+          <h2>Mis series favoritas</h2>
+          <ul class="js-list-favorites">
+            <!-- Mover a Javascript
+            <li>
+              <img class="js-fav-img" src="" alt="" />
+              <p class="js-fav-title"></p>
+              <div class="fa-solid fa-trash"></div>
+            </li> -->
+          </ul>
+        </article>
+      </aside>
+      <section>
+        <ul class="js-list-all">
+          <!-- Mover a Javascript
+          <li>
+            <img class="js-img" src="" alt="" />
+            <p class="js-title"></p>
+          </li> -->
+        </ul>
+      </section>
+    </main>
+    <script src="./assets/js/main.js"></script>
+  </body>
 </html>
