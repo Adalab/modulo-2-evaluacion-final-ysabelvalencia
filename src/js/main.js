@@ -10,54 +10,79 @@ const btnSearch = document.querySelector('.js-btn-search');
 
 const showContainer = document.querySelector('.js-list-all');
 
+const favContainer = document.querySelector('.js-list-favorites');
+
 const defaultImage =
   'https://via.placeholder.com/210x295/ffffff/666666/?text=TV';
 
 let showList = [];
 
+let favShowList = [];
+
 //funciones
 
-/*Esta función es la creadora de un elemento particular, en este caso una unica serie. 
-
-Primero se ha creado una variable para limpiar, después una variable para el src de la imagen ya que en el API hay dos imagenes disponibles y no paraba de darme error bien en original o en medium. 
-
-Por eso se realiza este condicional:
-
-- Aquí se verifica si oneShow.show.image está definido y si tiene una propiedad llamada "original". Si ambas condiciones son verdaderas, significa que hay una imagen en el formato "original", y se asigna esa URL de imagen a la variable imageSrc. Lo mismo con medium. Si no hay ninguna de las dos se mete una imagen por defecto.
-
-*/
-
-function renderShow(oneShow) {
+function renderShow(item) {
   let html = '';
   let imageSrc = '';
 
-  if (oneShow.show.image && oneShow.show.image.original) {
-    imageSrc = oneShow.show.image.original;
-  } else if (oneShow.show.image && oneShow.show.image.medium) {
-    imageSrc = oneShow.show.image.medium;
+  if (item.show.image && item.show.image.original) {
+    imageSrc = item.show.image.original;
   } else {
     imageSrc = defaultImage;
   }
 
-  html += `<li class="js-list-favorites" id="${oneShow.show.id}">
-    <img class="" src="${imageSrc}" alt="Portada de la serie" width=100px />
-    <p class="">${oneShow.show.name}</p>
-    </li>`;
+  html += `<li class="js-list-each" id="${item.show.id}">
+  <img class="" src="${imageSrc}" alt="Portada de la serie" width=100 />
+  <p class="">${item.show.name}</p>
+  <div class="fa-solid fa-trash hidden"></div>
+  </li>`;
+  //Las dos estructuras funcionan.Pte de investigar si una es más correcta que otra.
+  // html += `<li class="js-list-each" id="${item.show.id}">`;
+  // html += `<img class="" src="${imageSrc}" alt="Portada de la serie" width=100 />`;
+  // html += `<p class="">${item.show.name}</p>`;
+  // html += `<div class="fa-solid fa-trash hidden"></div>`;
+  // html += `</li>`;
+
+  console.log(item.show.id); //cuando busco serie y consoleo sale el id en pantalla.
   return html;
 }
 
-/* 
-Con esta función se muestra el listado completo del showList y se pinta en el showContainer utilizando la función que pintaba una unica serie
-*/
 function renderShows() {
   showContainer.innerHTML = '';
-  showList.forEach((oneShow) => {
-    showContainer.innerHTML += renderShow(oneShow);
-  });
+
+  for (const item of showList) {
+    showContainer.innerHTML += renderShow(item);
+  }
+  addEventsToShow();
 }
 
-/*
-Esta es la función manejadora del evento Search y en la que he generado que se cargue el API, porque quiero que aparezca cuando le de click a buscar  */
+function handleClickFavorite(ev) {
+  ev.preventDefault();
+
+  const idShowClicked = parseInt(ev.currentTarget.id);
+  console.log(idShowClicked);
+
+  let foundShow = showList.find((item) => item.show.id === idShowClicked);
+
+  const indexFavShow = favShowList.findIndex(
+    (item) => item.show.id === idShowClicked
+  );
+
+  if (indexFavShow === -1) {
+    favShowList.push(foundShow);
+  } else {
+    favShowList.splice(indexFavShow, 1);
+  }
+  //hasta aqui parece que ya pilla los id de las peliculas en consola.
+}
+
+function addEventsToShow() {
+  const allShows = document.querySelectorAll('.js-list-each');
+  console.log(allShows);
+  for (const item of allShows) {
+    item.addEventListener('click', handleClickFavorite);
+  }
+}
 
 function handleClickSearch(ev) {
   const inputValue = searchText.value;
@@ -66,7 +91,12 @@ function handleClickSearch(ev) {
     .then((response) => response.json())
     .then((data) => {
       showList = data;
-      renderShows();
+      const filteredShows = showList.filter((item) =>
+        item.show.name.toLowerCase().includes(inputValue.toLowerCase())
+      );
+
+      renderShows(filteredShows);
+      console.log(showList);
     });
 }
 
