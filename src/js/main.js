@@ -32,9 +32,9 @@ function renderShow(item) {
   }
 
   html += `<li class="js-list-each" id="${item.show.id}">
-  <img class="" src="${imageSrc}" alt="Portada de la serie" width=100 />
+  <img class="" src="${imageSrc}" alt="${item.show.name}" width=200 />
   <p class="">${item.show.name}</p>
-  <div class="fa-solid fa-trash hidden"></div>
+  <div class="fa-solid fa-trash js-icon-trash hidden"></div>
   </li>`;
   console.log(item.show.id); //cuando busco serie y consoleo sale el id en pantalla.
   return html;
@@ -46,7 +46,7 @@ function renderShows(listShows) {
   for (const item of listShows) {
     showContainer.innerHTML += renderShow(item);
   }
-  addEventsToShow();
+  addEventFav();
 }
 
 function renderFavShows(favoriteShow) {
@@ -55,7 +55,7 @@ function renderFavShows(favoriteShow) {
   for (const item of favoriteShow) {
     favContainer.innerHTML += renderShow(item);
   }
-  addEventsToShow();
+  addEventFav();
 }
 
 function handleClickFavorite(ev) {
@@ -72,13 +72,15 @@ function handleClickFavorite(ev) {
 
   if (indexFavShow === -1) {
     favShowList.push(foundShow);
+    ev.currentTarget.classList.add('chosen');
   } else {
     favShowList.splice(indexFavShow, 1);
+    ev.currentTarget.classList.remove('chosen');
   }
   renderFavShows(favShowList);
 }
 
-function addEventsToShow() {
+function addEventFav() {
   const allShows = document.querySelectorAll('.js-list-each');
   console.log(allShows);
   for (const item of allShows) {

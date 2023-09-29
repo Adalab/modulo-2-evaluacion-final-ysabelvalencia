@@ -16,31 +16,31 @@
     <link rel="icon" href="#" />
   </head>
   <body>
-    <header>
-      <h1>Buscador de series</h1>
+    <header class="header">
+      <h1 class="header__title">TV show maniac</h1>
+      <p class="header__text">Encuentra todas tus series favoritas</p>
     </header>
     <main class="main">
-      <aside class="aside">
-        <!-- Revisar que hay que rellenar del form -->
-        <form class="form">
-          <input
-            class="js-input-search"
-            type="text"
-            name="search-input"
-            id="search-input"
-            placeholder="Ej:Game of Thrones"
-          />
-          <button class="js-btn-search">Search</button>
-        </form>
-        <article class="article">
-          <h2>Mis series favoritas</h2>
+      <form class="form">
+        <input
+          class="js-input-search"
+          type="text"
+          name="search-input"
+          id="search-input"
+          placeholder="Ej:Game of Thrones"
+        />
+        <button class="js-btn-search">Search</button>
+      </form>
+      <div class="container">
+        <section class="section-fav">
+          <h2 class="section-title">Mis series favoritas</h2>
           <ul class="js-list-favorites"></ul>
-        </article>
-      </aside>
-      <section class="section-all">
-        <h2>Listado de series</h2>
-        <ul class="js-list-all"></ul>
-      </section>
+        </section>
+        <section class="section-all">
+          <h2 class="section-title">Listado de series</h2>
+          <ul class="js-list-all"></ul>
+        </section>
+      </div>
     </main>
 
     <script src="./assets/js/main.js"></script>
