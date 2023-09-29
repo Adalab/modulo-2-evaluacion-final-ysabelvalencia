@@ -19,6 +19,12 @@ let showList = [];
 
 let favShowList = [];
 
+const favShowsLS = JSON.parse(localStorage.getItem('favShows'));
+if (favShowsLS !== null) {
+  favShowList = favShowsLS;
+  renderFavShows(favShowList);
+}
+
 //funciones
 
 function renderShow(item) {
@@ -77,6 +83,8 @@ function handleClickFavorite(ev) {
     favShowList.splice(indexFavShow, 1);
     ev.currentTarget.classList.remove('chosen');
   }
+  localStorage.setItem('favShows', JSON.stringify(favShowList));
+
   renderFavShows(favShowList);
 }
 
