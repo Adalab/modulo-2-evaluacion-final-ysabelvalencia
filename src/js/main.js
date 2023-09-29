@@ -36,22 +36,24 @@ function renderShow(item) {
   <p class="">${item.show.name}</p>
   <div class="fa-solid fa-trash hidden"></div>
   </li>`;
-  //Las dos estructuras funcionan.Pte de investigar si una es más correcta que otra.
-  // html += `<li class="js-list-each" id="${item.show.id}">`;
-  // html += `<img class="" src="${imageSrc}" alt="Portada de la serie" width=100 />`;
-  // html += `<p class="">${item.show.name}</p>`;
-  // html += `<div class="fa-solid fa-trash hidden"></div>`;
-  // html += `</li>`;
-
   console.log(item.show.id); //cuando busco serie y consoleo sale el id en pantalla.
   return html;
 }
 
-function renderShows() {
+function renderShows(listShows) {
   showContainer.innerHTML = '';
 
-  for (const item of showList) {
+  for (const item of listShows) {
     showContainer.innerHTML += renderShow(item);
+  }
+  addEventsToShow();
+}
+
+function renderFavShows(favoriteShow) {
+  favContainer.innerHTML = '';
+
+  for (const item of favoriteShow) {
+    favContainer.innerHTML += renderShow(item);
   }
   addEventsToShow();
 }
@@ -73,7 +75,7 @@ function handleClickFavorite(ev) {
   } else {
     favShowList.splice(indexFavShow, 1);
   }
-  //hasta aqui parece que ya pilla los id de las peliculas en consola.
+  renderFavShows(favShowList);
 }
 
 function addEventsToShow() {
