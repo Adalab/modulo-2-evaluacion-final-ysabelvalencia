@@ -17,7 +17,15 @@ let showList = [];
 
 //funciones
 
-//Esta función es la creadora de un elemento particular, en este caso una unica serie. Primero se ha creado una variable para limpiar, después una variable para el src de la imagen ya que en el API hay dos imagenes disponibles y no para de darme error bien en original o en medium. Por eso se realiza este condicional
+/*Esta función es la creadora de un elemento particular, en este caso una unica serie. 
+
+Primero se ha creado una variable para limpiar, después una variable para el src de la imagen ya que en el API hay dos imagenes disponibles y no paraba de darme error bien en original o en medium. 
+
+Por eso se realiza este condicional:
+
+- Aquí se verifica si oneShow.show.image está definido y si tiene una propiedad llamada "original". Si ambas condiciones son verdaderas, significa que hay una imagen en el formato "original", y se asigna esa URL de imagen a la variable imageSrc. Lo mismo con medium. Si no hay ninguna de las dos se mete una imagen por defecto.
+
+*/
 
 function renderShow(oneShow) {
   let html = '';
@@ -31,19 +39,25 @@ function renderShow(oneShow) {
     imageSrc = defaultImage;
   }
 
-  html += `<li class="js-each-show" id="${oneShow.show.id}">
-    <img class="" src="${imageSrc}" alt="Portada de la serie" width=300px />
+  html += `<li class="js-list-favorites" id="${oneShow.show.id}">
+    <img class="" src="${imageSrc}" alt="Portada de la serie" width=100px />
     <p class="">${oneShow.show.name}</p>
     </li>`;
   return html;
 }
 
+/* 
+Con esta función se muestra el listado completo del showList y se pinta en el showContainer utilizando la función que pintaba una unica serie
+*/
 function renderShows() {
   showContainer.innerHTML = '';
   showList.forEach((oneShow) => {
     showContainer.innerHTML += renderShow(oneShow);
   });
 }
+
+/*
+Esta es la función manejadora del evento Search y en la que he generado que se cargue el API, porque quiero que aparezca cuando le de click a buscar  */
 
 function handleClickSearch(ev) {
   const inputValue = searchText.value;

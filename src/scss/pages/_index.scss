@@ -1,1 +1,40 @@
-///aqui el codigo csss
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  width: 100vh;
+}
+
+.section-all {
+  border: 1rem solid #a865a8;
+  background-color: #a865a8;
+  width: 50%;
+  min-height: 80vh;
+  height: fit-content;
+}
+
+.aside {
+  width: 50%;
+  min-height: 80vh;
+  height: fit-content;
+}
+
+.article {
+  border: 1rem solid purple;
+  background-color: purple;
+  color: white;
+}
+
+.form {
+  border: 1rem solid pink;
+  background-color: pink;
+}
