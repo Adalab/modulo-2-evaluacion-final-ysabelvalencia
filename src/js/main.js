@@ -27,20 +27,24 @@ if (favShowsLS !== null) {
 
 //funciones
 
-function renderShow(item) {
+function renderShow(item, isFavContainer) {
   let html = '';
   let imageSrc = '';
 
   if (item.show.image && item.show.image.original) {
     imageSrc = item.show.image.original;
+  } else if (item.show.image && item.show.image.medium) {
+    imageSrc = item.show.image.medium;
   } else {
     imageSrc = defaultImage;
   }
 
-  html += `<li class="js-list-each" id="${item.show.id}">
-  <img class="" src="${imageSrc}" alt="${item.show.name}" width=200 />
-  <p class="">${item.show.name}</p>
-  <div class="fa-solid fa-trash js-icon-trash hidden"></div>
+  const hiddenClass = isFavContainer ? '' : 'hidden';
+
+  html += `<li class="li-all li-fav js-list-each" id="${item.show.id}">
+  <img class="img-all img-fav" src="${imageSrc}" alt="${item.show.name}" width=200 />
+  <div class="div-fav div-all"><p class="p-fav p-all">${item.show.name}</p>
+  <i class="fa-solid fa-trash js-icon-trash ${hiddenClass}"></i></div>
   </li>`;
   console.log(item.show.id); //cuando busco serie y consoleo sale el id en pantalla.
   return html;
@@ -50,7 +54,8 @@ function renderShows(listShows) {
   showContainer.innerHTML = '';
 
   for (const item of listShows) {
-    showContainer.innerHTML += renderShow(item);
+    const showHtml = renderShow(item, false);
+    showContainer.innerHTML += showHtml;
   }
   addEventFav();
 }
@@ -59,7 +64,8 @@ function renderFavShows(favoriteShow) {
   favContainer.innerHTML = '';
 
   for (const item of favoriteShow) {
-    favContainer.innerHTML += renderShow(item);
+    const favHtml = renderShow(item, true);
+    favContainer.innerHTML += favHtml;
   }
   addEventFav();
 }
