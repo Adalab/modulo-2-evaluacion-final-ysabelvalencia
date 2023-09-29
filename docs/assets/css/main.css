@@ -1,1 +1,1 @@
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0}*{box-sizing:border-box;margin:0;padding:0}html{font-size:62.5%}.main{display:flex;flex-direction:row;min-height:100vh;height:-moz-fit-content;height:fit-content;background-color:purple}.section-all{border:1rem solid #a865a8;background-color:#a865a8;width:50%}.aside{width:50%}.article{border:1rem solid purple;background-color:purple;color:white}.form{border:1rem solid #a865a8;background-color:#a865a8}.hidden{display:none}
