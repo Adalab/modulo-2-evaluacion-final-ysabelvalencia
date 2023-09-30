@@ -42,12 +42,10 @@ function renderShow(item, isFavContainer) {
   }
 
   const hiddenClass = isFavContainer ? '' : 'hidden';
-  const titleClass = isFavContainer ? 'p-fav' : 'p-all';
 
-  html += `<li class="li-fav js-list-each" id="${item.show.id}">
-  <img class="img-fav" src="${imageSrc}" alt="${item.show.name}" width=200 />
-  <div class="div-fav"><p class="${titleClass}">${item.show.name}</p>
-  <i class="fa-solid fa-trash js-icon-trash ${hiddenClass}"></i></div>
+  html += `<li class="fav-list all-list js-list-each" id="${item.show.id}">
+  <img class="fav-list__img all-list__img" src="${imageSrc}" alt="${item.show.name}"/>  <div class="fav-list__div all-list__div"><p class="fav-div-text all-div-text">${item.show.name}</p>
+  <i class="fav-div-icon fa-solid fa-trash js-icon-trash ${hiddenClass}"></i></div>
   </li>`;
   console.log(item.show.id); //cuando busco serie y consoleo sale el id en pantalla.
   return html;
