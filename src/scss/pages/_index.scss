@@ -54,7 +54,7 @@ html {
     flex-direction: row;
 
     .section-fav {
-      width: 40%;
+      width: 30%;
       padding: 6rem;
 
       .section-title {
@@ -82,15 +82,22 @@ html {
 
       .p-fav {
         font-size: 1.5rem;
+        color: red;
       }
     }
 
     .section-all {
-      width: 60%;
+      width: 70%;
       padding: 6rem;
 
       .section-title {
         font-size: 2rem;
+      }
+
+      .ul-all {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
       }
     }
   }

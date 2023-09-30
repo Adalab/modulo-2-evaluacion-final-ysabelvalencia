@@ -17,19 +17,26 @@
   </head>
   <body>
     <header class="header">
-      <h1 class="header__title">TV show maniac</h1>
-      <p class="header__text">Encuentra todas tus series favoritas</p>
+      <div class="header-box">
+        <h1 class="header-box__title">TV show maniac</h1>
+        <p class="header-box__text">Encuentra todas tus series favoritas</p>
+      </div>
+      <nav class="header-nav">
+        <i class="fa-solid fa-bars" style="color: #ffffff"></i>
+      </nav>
     </header>
     <main class="main">
-      <form class="form">
+      <form class="main-form">
         <input
-          class="js-input-search"
+          class="main-form__input js-input-search"
           type="text"
           name="search-input"
           id="search-input"
           placeholder="Ej:Game of Thrones"
         />
-        <button class="js-btn-search">Search</button>
+        <button class="main-form__search js-btn-search">Search</button>
+
+        <button class="main-form__reset js-btn-reset">Reset</button>
       </form>
       <div class="container">
         <section class="section-fav">
@@ -38,7 +45,7 @@
         </section>
         <section class="section-all">
           <h2 class="section-title">Listado de series</h2>
-          <ul class="js-list-all"></ul>
+          <ul class="ul-all js-list-all"></ul>
         </section>
       </div>
     </main>
