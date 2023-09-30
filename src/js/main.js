@@ -95,6 +95,11 @@ function handleClickFavorite(ev) {
   localStorage.setItem('favShows', JSON.stringify(favShowList));
 
   renderFavShows(favShowList);
+
+  const favClicked = document.getElementById(idShowClicked);
+  if (favClicked) {
+    favClicked.classList.remove('chosen');
+  }
 }
 
 function addEventFav() {
@@ -118,7 +123,6 @@ function handleClickSearch(ev) {
       );
 
       renderShows(filteredShows);
-      console.log(showList);
     })
     .catch((error) => console.error('Error fetching data:', error));
 }
