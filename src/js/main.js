@@ -8,6 +8,8 @@ const searchText = document.querySelector('.js-input-search');
 
 const btnSearch = document.querySelector('.js-btn-search');
 
+const btnReset = document.querySelector('.js-btn-reset');
+
 const showContainer = document.querySelector('.js-list-all');
 
 const favContainer = document.querySelector('.js-list-favorites');
@@ -77,7 +79,7 @@ function handleClickFavorite(ev) {
   const idShowClicked = parseInt(ev.currentTarget.id);
   console.log(idShowClicked);
 
-  let foundShow = showList.find((item) => item.show.id === idShowClicked);
+  const foundShow = showList.find((item) => item.show.id === idShowClicked);
 
   const indexFavShow = favShowList.findIndex(
     (item) => item.show.id === idShowClicked
@@ -104,8 +106,9 @@ function addEventFav() {
 }
 
 function handleClickSearch(ev) {
-  const inputValue = searchText.value;
   ev.preventDefault();
+  const inputValue = searchText.value;
+
   fetch(`//api.tvmaze.com/search/shows?q=${inputValue}`)
     .then((response) => response.json())
     .then((data) => {
@@ -116,9 +119,22 @@ function handleClickSearch(ev) {
 
       renderShows(filteredShows);
       console.log(showList);
-    });
+    })
+    .catch((error) => console.error('Error fetching data:', error));
+}
+
+function handleClickResetBtn(ev) {
+  ev.preventDefault();
+  localStorage.removeItem('favShows');
+  favShowList = [];
+  showList = [];
+  renderFavShows(favShowList);
+  renderShows(showList);
+  addEventFav();
 }
 
 //Eventos
 
 btnSearch.addEventListener('click', handleClickSearch);
+
+btnReset.addEventListener('click', handleClickResetBtn);
