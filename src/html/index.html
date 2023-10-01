@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Evaluación Final: Javascript</title>
+    <title>You Rock! Busca tu serie</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.   gstatic.com" crossorigin />
     <link
@@ -15,11 +15,11 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="icon" href="#" />
+    <link rel="icon" href="./assets/images/fav-icon.png" />
   </head>
   <body>
     <header class="header">
-      <img class="header-logo" src="./assets/images/black_vintage.png" alt="" />
+      <img class="header-logo" src="./assets/images/header-logo.png" alt="" />
       <div class="header-box">
         <img
           class="header-box__title"
@@ -44,23 +44,29 @@
             placeholder="Ej: Game of Thrones"
           />
         </div>
-        <button class="main-form__search js-btn-search">Search</button>
+        <button class="main-form__search js-btn-search">Buscar</button>
 
         <button class="main-form__reset js-btn-reset">Reset</button>
       </form>
       <div class="container">
         <section class="section-fav">
-          <h2 class="section-fav__title">Mis series favoritas</h2>
+          <h2 class="section-fav__title">
+            <span class="favspan"></span>Mis series favoritas
+          </h2>
           <ul class="section-fav__ul js-list-favorites"></ul>
         </section>
         <section class="section-all">
-          <h2 class="section-all__title">Listado de series</h2>
+          <h2 class="section-all__title">
+            <span class="allspan"></span>Listado de series
+          </h2>
           <ul class="section-all__ul js-list-all"></ul>
         </section>
       </div>
     </main>
     <footer class="footer">
-      <small> You Rock! © 2023</small>
+      <small class="footer__span"> You Rock! © 2023</small>
+
+      <img class="footer__img" src="./assets/images/footer-logo.png" alt="" />
     </footer>
 
     <script src="./assets/js/main.js"></script>
