@@ -18,14 +18,15 @@ html {
   justify-content: space-around;
   align-items: center;
 
+  @media (min-width: 768px) {
+    height: 18vh;
+  }
   .header-logo {
     width: 4.9rem;
     @media (min-width: 768px) {
-      padding-top: 2rem;
-      width: 8rem;
+      width: 6.5rem;
     }
   }
-
   .header-box {
     display: flex;
     flex-direction: column;
@@ -75,6 +76,10 @@ html {
   flex-direction: column;
   height: fit-content;
   background-color: black;
+
+  @media (min-width: 768px) {
+    min-height: 72vh;
+  }
 }
 
 .main-form {
@@ -229,14 +234,26 @@ html {
         width: 6rem;
         align-items: center;
 
+        @media (min-width: 768px) {
+          width: 9rem;
+        }
+
+        @media (min-width: 1024px) {
+          width: 15rem;
+        }
+
         .fav-div-text {
           font-size: 0.8rem;
           width: 5rem;
           color: white;
 
           @media (min-width: 768px) {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             width: 7rem;
+          }
+
+          @media (min-width: 1024px) {
+            width: 13rem;
           }
         }
         .fav-div-icon {
@@ -251,6 +268,10 @@ html {
 .section-all {
   width: 70vw;
   padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
   &__title {
     font-size: 1.5rem;
@@ -260,11 +281,12 @@ html {
 
     @media (min-width: 768px) {
       font-size: 2.5rem;
+      padding-bottom: 3.5rem;
     }
   }
   .allspan {
-    border-left: 0.5rem solid #81638b;
-    padding: 0.3rem;
+    border-left: 0.8rem solid #81638b;
+    padding: 0.4rem;
   }
 
   &__ul {
@@ -278,6 +300,11 @@ html {
       gap: 2.5rem;
     }
 
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+    }
+
     .all-list {
       display: flex;
       flex-direction: column;
@@ -287,7 +314,7 @@ html {
       cursor: pointer;
 
       &:hover {
-        transform: scale(120%);
+        transform: scale(110%);
       }
 
       &__img {
@@ -295,6 +322,14 @@ html {
         height: auto;
         border-radius: 0.5rem;
         padding-bottom: 0.5rem;
+
+        @media (min-width: 768px) {
+          width: 12rem;
+        }
+
+        @media (min-width: 1024px) {
+          width: 14rem;
+        }
       }
 
       &__div {
@@ -308,6 +343,10 @@ html {
           font-weight: bold;
           text-align: center;
           color: white;
+
+          @media (min-width: 768px) {
+            font-size: 1.5rem;
+          }
         }
       }
     }
