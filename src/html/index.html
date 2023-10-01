@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Evaluación Final: Javascript</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.   gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css2?    family=Montserrat+Alternates:ital,wght@0,700;   0,900;1,900&family=Open+Sans:wght@300;400&  display=swap"
       rel="stylesheet"
     />
     <script
@@ -17,8 +19,13 @@
   </head>
   <body>
     <header class="header">
+      <img class="header-logo" src="./assets/images/black_vintage.png" alt="" />
       <div class="header-box">
-        <h1 class="header-box__title">TV show maniac</h1>
+        <img
+          class="header-box__title"
+          src="./assets/images/you_rock.png"
+          alt=""
+        />
         <p class="header-box__text">Encuentra todas tus series favoritas</p>
       </div>
       <nav class="header-nav">
@@ -27,13 +34,16 @@
     </header>
     <main class="main">
       <form class="main-form">
-        <input
-          class="main-form__input js-input-search"
-          type="text"
-          name="search-input"
-          id="search-input"
-          placeholder="Ej: Game of Thrones"
-        />
+        <div class="div-input">
+          <i class="div-input__icon fa-solid fa-magnifying-glass"></i>
+          <input
+            class="div-input__input js-input-search"
+            type="text"
+            name="search-input"
+            id="search-input"
+            placeholder="Ej: Game of Thrones"
+          />
+        </div>
         <button class="main-form__search js-btn-search">Search</button>
 
         <button class="main-form__reset js-btn-reset">Reset</button>
@@ -49,6 +59,9 @@
         </section>
       </div>
     </main>
+    <footer class="footer">
+      <small> You Rock! © 2023</small>
+    </footer>
 
     <script src="./assets/js/main.js"></script>
   </body>

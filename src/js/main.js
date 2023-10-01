@@ -33,9 +33,11 @@ function renderShow(item, isFavContainer) {
   let html = '';
   let imageSrc = '';
 
-  if (item.show.image && item.show.image.original) {
-    imageSrc = item.show.image.original;
-  } else if (item.show.image && item.show.image.medium) {
+  // if (item.show.image && item.show.image.original) {
+  //   imageSrc = item.show.image.original;
+  // } else if (item.show.image && item.show.image.medium) {
+  //   imageSrc = item.show.image.medium;
+  if (item.show.image && item.show.image.medium) {
     imageSrc = item.show.image.medium;
   } else {
     imageSrc = defaultImage;
