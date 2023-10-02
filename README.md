@@ -34,5 +34,5 @@ La prueba consiste en crear una web de búsquedas de series que sea interactiva.
 
 >Diseño en el nos podiamos basar: 
 
-![](./docs/assets/images/design.png)
+![](./src/images/design.png)
 
