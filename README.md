@@ -1,9 +1,11 @@
 # Módulo 2 : Evaluación final.
 
-Este es mi ejercicio propuesto por el profesorado de Adalab para valorar las capacidades adquiridas durante el módulo 2.
+Esta es mi resolución al ejercicio propuesto por el profesorado de Adalab para valorar las capacidades adquiridas durante el módulo 2.
+
+En esta prueba he utilizado JavaScript principalmente dado que la materia a valorar en este módulo. Además para la maquetación he utilizado html y scss, así como utilizar como plantilla el Starter Kit de Adalab. 
 
 
-La prueba consiste en crear una web de busquedas de series que sea interactiva.
+La prueba consiste en crear una web de búsquedas de series que sea interactiva.
 
 **Requisitos:**
 
@@ -32,5 +34,5 @@ La prueba consiste en crear una web de busquedas de series que sea interactiva.
 
 >Diseño en el nos podiamos basar: 
 
-![](./docs/assets/images/design.png.)
+![](./docs/assets/images/design.png)
 
