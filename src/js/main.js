@@ -1,8 +1,6 @@
 'use strict';
 
-console.log('>> Ready :)');
-
-//query selectors, arrays vacios
+// query selectors, variables
 
 const searchText = document.querySelector('.js-input-search');
 
@@ -33,10 +31,6 @@ function renderShow(item, isFavContainer) {
   let html = '';
   let imageSrc = '';
 
-  // if (item.show.image && item.show.image.original) {
-  //   imageSrc = item.show.image.original;
-  // } else if (item.show.image && item.show.image.medium) {
-  //   imageSrc = item.show.image.medium;
   if (item.show.image && item.show.image.medium) {
     imageSrc = item.show.image.medium;
   } else {
@@ -49,7 +43,7 @@ function renderShow(item, isFavContainer) {
   <img class="fav-list__img all-list__img" src="${imageSrc}" alt="${item.show.name}"/>  <div class="fav-list__div all-list__div"><p class="fav-div-text all-div-text">${item.show.name}</p>
   <i class="fav-div-icon fa-solid fa-trash js-icon-trash ${hiddenClass}"></i></div>
   </li>`;
-  console.log(item.show.id); //cuando busco serie y consoleo sale el id en pantalla.
+
   return html;
 }
 
@@ -77,7 +71,6 @@ function handleClickFavorite(ev) {
   ev.preventDefault();
 
   const idShowClicked = parseInt(ev.currentTarget.id);
-  console.log(idShowClicked);
 
   const foundShow = showList.find((item) => item.show.id === idShowClicked);
 
@@ -104,7 +97,7 @@ function handleClickFavorite(ev) {
 
 function addEventFav() {
   const allShows = document.querySelectorAll('.js-list-each');
-  console.log(allShows);
+
   for (const item of allShows) {
     item.addEventListener('click', handleClickFavorite);
   }
